@@ -1,0 +1,25 @@
+{
+  "name": "Less_Mixins",
+  "version": "0.1.0",
+  "description": "Commonly Used Less Mixins Templates",
+  "author": "svenkatreddy",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-html": "~0.3.3",
+    "grunt-concurrent": "~0.3.0",
+    "grunt-open": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-csslint": "~0.1.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-less": ">=0.8.1",
+    "connect-livereload": "~0.2.0",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-string-replace": "~0.2.4",
+    "grunt-express": ">=1.2.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "express": "3.x"
+  }
+}
