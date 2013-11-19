@@ -1,4 +1,4 @@
 LessMixins
 ==========
 
-Commnly used Less Mixins Templates
+Commonly used Less Mixins Templates
