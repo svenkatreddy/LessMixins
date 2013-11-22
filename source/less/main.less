@@ -1,0 +1,185 @@
+//-----------------------------------------------------
+//  main.less - contains Wellsfargo global variables and mixins
+//  Additions, Changes and Feedback is welcomed
+//-----------------------------------------------------
+
+@charset "utf-8";
+
+// Color Palette 
+@digital_orange: #ce4c00;
+@digital_green: #5e8206;
+
+
+
+// Asset Locations
+@imageDir: "images";
+@fontDir: "fonts";
+
+// This works based on your @imageDir location, pass filename
+.background-image(@img: 0,@repeat: no-repeat,@position: left) {
+  background: url("@{imageDir}/@{img}") @repeat @position;
+}
+
+
+.columns(@cols, @total_cols:18) {
+  width: percentage(@cols / @total_cols);
+}
+
+.center-vertical() {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+// Sizing shortcuts
+.size(@width, @height) {
+  width: @width;
+  height: @height;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+.text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// overflow scrolling
+.scrollxy(@xscroll: hidden, @yscroll: hidden) {
+  overflow-x: @xscroll;
+  overflow-y: @yscroll;
+  // -webkit-overflow-scrolling: touch;
+}
+
+.gradient-bilinear (@origin: left, @start: #ffffff,@startp: 0%,@stop: #000000,@stopp: 0%) {
+  background-color: @start;
+  background-image: -webkit-linear-gradient(@origin, @start @startp, @stop @stopp); // Newer safari,Android,chrome
+  background-image: -webkit-gradient(linear, @origin @startp, @origin @stopp, from(@start), to(@stop)); // Older Android versions,chrome,safari
+  background-image: -moz-linear-gradient(@origin, @start @startp, @stop @stopp);
+  background-image: -o-linear-gradient(@origin, @start @startp, @stop @stopp);
+  background-image: -ms-linear-gradient(@origin, @start @startp, @stop @stopp);
+  background-image: linear-gradient(@origin, @start @startp, @stop @stopp);
+}
+
+.gradient-quadlinear (@origin: left, @start: #ffffff, @middle1: #f4f4f4,@middle1p: 50%,@middle2: #f4f4f4,@middle2p: 52%, @stop: #000000)  {
+  background: @start;
+  background: -moz-linear-gradient(@origin,  @start 0%,@middle1 @middle1p, @middle2 @middle2p, @stop 100%);
+  background: -webkit-linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
+  background: -o-linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
+  background: -ms-linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
+  background: linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
+}
+
+.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+  -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+  -moz-border-radius: @topleft @topright @bottomright @bottomleft;
+  border-radius: @topleft @topright @bottomright @bottomleft;
+}
+
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+.buttonfixed(@width: 160px) {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  border: 0;
+  text-decoration: none;
+  .border-radius(5px);
+  padding: 10px 15px;
+  width: @width;
+}
+
+.button() {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  border: 0;
+  text-decoration: none;
+  .border-radius(5px);
+  padding: 10px 15px;
+}
+
+// Fade effect
+.fadeeffect(){
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+}
+
+// Shapes
+.triangle(@side: 12px, @color: white) {
+  width: 0;
+  height: 0;
+  border-bottom: @side solid @color;
+  border-left: (@side) solid transparent;
+  border-right: (@side) solid transparent;
+}
+
+.trapezium(@height: 30px) {
+  height:@height;
+  border-bottom: @height solid #5F7D01;
+  border-left: (@height /1.3333) solid transparent;
+  border-right: (@height /1.3333) solid transparent;
+}
+
+// Animate
+
+.rotate (@degrees: 0) {
+  -webkit-transform: rotate(~"@{degrees}deg");
+  -moz-transform: rotate(~"@{degrees}deg");
+  -ms-transform: rotate(~"@{degrees}deg");
+  -o-transform: rotate(~"@{degrees}deg");
+  transform: rotate(~"@{degrees}deg");
+}
+
+.rotate3d (@x: 0, @y: 0, @z: 0, @degrees: 0) {
+  -webkit-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+  -moz-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+  -ms-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+  -o-transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+  transform: rotate3d(@x, @y, @z, ~"@{degrees}deg");
+}
+
+.translate (@x: 0, @y: 0) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+
+.translate3d (@x: 0, @y: 0,@z: 0) {
+  -webkit-transform: translate3d(@x, @y, @z);
+  -moz-transform: translate3d(@x, @y, @z);
+  -ms-transform: translate3d(@x, @y, @z);
+  -o-transform: translate3d(@x, @y, @z);
+  transform: translate3d(@x, @y, @z);
+}
+
+
+.transition (@property: property, @duration: 0.0s, @timing: linear, @delay: 0) {
+  -webkit-transition: @arguments;
+  -moz-transition: @property @duration @timing ~"@{delay}s";
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+
