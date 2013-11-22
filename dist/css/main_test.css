@@ -1,10 +1,14 @@
 @charset "utf-8";
 .button {
-  background-color: #ffffff;
-  background-image: -webkit-linear-gradient(left, #ffffff 0%, #ffff00 50%);
-  background-image: -webkit-gradient(linear, left 0%, left 50%, from(#ffffff), to(#ffff00));
-  background-image: -moz-linear-gradient(left, #ffffff 0%, #ffff00 50%);
-  background-image: -o-linear-gradient(left, #ffffff 0%, #ffff00 50%);
-  background-image: -ms-linear-gradient(left, #ffffff 0%, #ffff00 50%);
-  background-image: linear-gradient(left, #ffffff 0%, #ffff00 50%);
+  background-color: #ff0000;
+  background-image: -webkit-linear-gradient(left, #ff0000 0%, #000000 50%);
+  background-image: -webkit-gradient(linear, left 0%, left 50%, from(#ff0000), to(#000000));
+  background-image: -moz-linear-gradient(left, #ff0000 0%, #000000 50%);
+  background-image: -o-linear-gradient(left, #ff0000 0%, #000000 50%);
+  background-image: -ms-linear-gradient(left, #ff0000 0%, #000000 50%);
+  background-image: linear-gradient(left, #ff0000 0%, #000000 50%);
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  color: yellow;
 }

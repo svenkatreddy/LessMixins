@@ -58,7 +58,7 @@ module.exports = function(grunt) {
           port: process.env.PORT, // change this to whatever port 
          // hostname: "0.0.0.0",
           bases: ['./dist'],
-          server: path.resolve('./server'),
+          //server: path.resolve('./server'),
           livereload: true,
           serverreload: false
         }
