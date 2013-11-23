@@ -1,5 +1,5 @@
 //-----------------------------------------------------
-//  main.less - contains Wellsfargo global variables and mixins
+//  main.less - contains global variables and mixins
 //  Additions, Changes and Feedback is welcomed
 //-----------------------------------------------------
 
@@ -25,6 +25,7 @@
 
 .retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
   background-image: url("@{imageDir}/@{file-1x}");
+  background-size: @width-1x @height-1x;
 
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
