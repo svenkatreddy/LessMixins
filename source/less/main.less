@@ -12,12 +12,53 @@
 
 
 // Asset Locations
-@imageDir: "images";
+@imageDir: "../images";
 @fontDir: "fonts";
+@spriteImage: "sprite.png";
+@spriteImage2x: "sprtite@2x.png";
+
 
 // This works based on your @imageDir location, pass filename
-.background-image(@img: 0,@repeat: no-repeat,@position: left) {
+.background(@img: 0,@repeat: no-repeat,@position: left) {
   background: url("@{imageDir}/@{img}") @repeat @position;
+}
+
+.retina-image(@file-1x, @file-2x, @width-1x, @height-1x) {
+  background-image: url("@{imageDir}/@{file-1x}");
+  background-size: @width-1x @height-1x;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{imageDir}/@{file-2x}");
+    background-size: @width-1x @height-1x;
+  }
+}
+
+//For sprite
+.background-sprite(@pos1: 0, @pos2: 0,@spriteTemp : @spriteImage){
+background: url("@{imageDir}/@{spriteTemp}") no-repeat @pos1 @pos2;
+}
+
+.retina-image-sprite(@pos1: 0, @pos2: 0, @width-1x, @height-1x,@spriteTemp : @spriteImage,@spriteTemp2x : @spriteImage2x) {
+  background-image: url("@{imageDir}/@{spriteTemp}");
+  background-position: @pos1 @pos2;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{imageDir}/@{@spriteTemp2x}");
+    background-position: @pos1 * 2 @pos2 * 2;
+    background-size: @width-1x @height-1x;
+  }
 }
 
 
@@ -55,10 +96,77 @@
   // -webkit-overflow-scrolling: touch;
 }
 
+//Gradients
+
+.gradient-horizontal(@startColor: #555, @endColor: #333) {
+  background-color: @endColor;
+  background-image: -moz-linear-gradient(left, @startColor, @endColor); 
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@startColor), to(@endColor));
+  background-image: -webkit-linear-gradient(left, @startColor, @endColor); 
+  background-image: -o-linear-gradient(left, @startColor, @endColor); 
+  background-image: linear-gradient(to right, @startColor, @endColor); 
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@startColor),argb(@endColor))); // IE9 and down
+}
+.gradient-vertical(@startColor: #555, @endColor: #333) {
+  background-color: @endColor;
+  background-image: -moz-linear-gradient(top, @startColor, @endColor);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); 
+  background-image: -webkit-linear-gradient(top, @startColor, @endColor);
+  background-image: -o-linear-gradient(top, @startColor, @endColor); 
+  background-image: linear-gradient(to bottom, @startColor, @endColor);
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+}
+.gradient-directional(@startColor: #555, @endColor: #333, @deg: 45deg) {
+  background-color: @endColor;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(@deg, @startColor, @endColor); 
+  background-image: -webkit-linear-gradient(@deg, @startColor, @endColor);
+  background-image: -o-linear-gradient(@deg, @startColor, @endColor);
+  background-image: linear-gradient(@deg, @startColor, @endColor); 
+}
+.gradient-horizontal-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 50%, @endColor: #c3325f) {
+  background-color: mix(@midColor, @endColor, 80%);
+  background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
+  background-image: -webkit-linear-gradient(left, @startColor, @midColor @colorStop, @endColor);
+  background-image: -moz-linear-gradient(left, @startColor, @midColor @colorStop, @endColor);
+  background-image: -o-linear-gradient(left, @startColor, @midColor @colorStop, @endColor);
+  background-image: linear-gradient(to right, @startColor, @midColor @colorStop, @endColor);
+  background-repeat: no-repeat;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+.gradient-vertical-three-colors(@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 50%, @endColor: #c3325f) {
+  background-color: mix(@midColor, @endColor, 80%);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
+  background-image: -webkit-linear-gradient(@startColor, @midColor @colorStop, @endColor);
+  background-image: -moz-linear-gradient(top, @startColor, @midColor @colorStop, @endColor);
+  background-image: -o-linear-gradient(@startColor, @midColor @colorStop, @endColor);
+  background-image: linear-gradient(@startColor, @midColor @colorStop, @endColor);
+  background-repeat: no-repeat;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
+}
+.gradient-radial(@innerColor: #555, @outerColor: #333) {
+  background-color: @outerColor;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
+  background-image: -webkit-radial-gradient(circle, @innerColor, @outerColor);
+  background-image: -moz-radial-gradient(circle, @innerColor, @outerColor);
+  background-image: -o-radial-gradient(circle, @innerColor, @outerColor);
+  background-repeat: no-repeat;
+}
+.gradient-striped(@color: #555, @angle: 45deg) { 
+  background-color: @color;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+}
+
+//custom origin, start and stop
 .gradient-bilinear (@origin: left, @start: #ffffff,@startp: 0%,@stop: #000000,@stopp: 0%) {
-  background-color: @start;
-  background-image: -webkit-linear-gradient(@origin, @start @startp, @stop @stopp); // Newer safari,Android,chrome
-  background-image: -webkit-gradient(linear, @origin @startp, @origin @stopp, from(@start), to(@stop)); // Older Android versions,chrome,safari
+  background-color: @stop;
+  background-image: -webkit-linear-gradient(@origin, @start @startp, @stop @stopp);
   background-image: -moz-linear-gradient(@origin, @start @startp, @stop @stopp);
   background-image: -o-linear-gradient(@origin, @start @startp, @stop @stopp);
   background-image: -ms-linear-gradient(@origin, @start @startp, @stop @stopp);
@@ -66,7 +174,7 @@
 }
 
 .gradient-quadlinear (@origin: left, @start: #ffffff, @middle1: #f4f4f4,@middle1p: 50%,@middle2: #f4f4f4,@middle2p: 52%, @stop: #000000)  {
-  background: @start;
+  background: @stop;
   background: -moz-linear-gradient(@origin,  @start 0%,@middle1 @middle1p, @middle2 @middle2p, @stop 100%);
   background: -webkit-linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
   background: -o-linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
@@ -74,6 +182,7 @@
   background: linear-gradient(@origin,  @start 0%,@middle1 @middle1p,@middle2 @middle2p,@stop 100%);
 }
 
+//border
 .border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
   -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
   -moz-border-radius: @topleft @topright @bottomright @bottomleft;
@@ -86,42 +195,12 @@
   border-radius: @radius;
 }
 
+
+// box shadow
 .box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
   -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
   -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
   box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
-}
-
-.buttonfixed(@width: 160px) {
-  display: inline-block;
-  font-weight: bold;
-  text-align: center;
-  border: 0;
-  text-decoration: none;
-  .border-radius(5px);
-  padding: 10px 15px;
-  width: @width;
-}
-
-.button() {
-  display: inline-block;
-  font-weight: bold;
-  text-align: center;
-  border: 0;
-  text-decoration: none;
-  .border-radius(5px);
-  padding: 10px 15px;
-}
-
-// Fade effect
-.fadeeffect(){
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
-  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
-  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
-  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
 }
 
 
@@ -182,5 +261,66 @@
   -o-transition: @arguments;
   transition: @arguments;
 }
+
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+  -moz-transform: scale(@ratio);
+  -ms-transform: scale(@ratio);
+  -o-transform: scale(@ratio);
+  transform: scale(@ratio);
+}
+
+.backface-visibility(@visibility){
+  -webkit-backface-visibility: @visibility;
+  -moz-backface-visibility: @visibility;
+  backface-visibility: @visibility;
+}
+
+
+// components 
+
+.buttonfixed(@width: 160px) {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  border: 0;
+  text-decoration: none;
+  .border-radius(5px);
+  padding: 10px 15px;
+  width: @width;
+}
+
+.button() {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  border: 0;
+  text-decoration: none;
+  .border-radius(5px);
+  padding: 10px 15px;
+}
+
+// Fade effect
+.fadeeffect(){
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 70%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(70%,rgba(255,255,255,1)));
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 70%);
+}
+
+
+//Others
+
+// Opacity
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
 
 

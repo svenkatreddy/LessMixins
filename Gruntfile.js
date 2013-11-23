@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                  dest: 'dist/'},
                  {expand: true,
                   cwd: 'source',
-                  src: ['./css/*.css','./css/images/**/*'],
+                  src: ['./css/*.css','./css/images/**/*','./images/*'],
                   dest: 'dist/'}
             ]
         }

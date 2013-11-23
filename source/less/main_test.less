@@ -1,9 +1,49 @@
 @import "main.less";
 
-.button {
-  .gradient-bilinear(left,red,0%,black,50%);
-  width : 200px;
-  height: 40px;
+.btn1 {
+  .gradient-bilinear(top, #f3f3f3,0%,#f4f4f4,100%);
+  .size(130px,20px);
+  .border-radius(5px);
   padding: 10px;
-  color:  yellow;
 }
+
+.btn2 {
+  .gradient-quadlinear (top,#5174b8,#3d62a3,50%,#335898,52%,#244a87);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.triangletest1{
+    .triangle(12px,red);
+}
+
+.triangletest2{
+    .triangle(12px,green);
+    .rotate(90);
+}
+.triangletest3{
+    .triangle(12px,blue);
+    .rotate(180);
+}
+
+.triangletest4{
+    .triangle(12px,blue);
+    .rotate(270);
+}
+
+.logo1 {
+    .background("test.png");
+    .size(20px,20px);
+}
+
+.logo2 {
+    .retina-image("test.png","test@2x.png","20px","20px");
+    .size(20px,20px);
+}
+
+
+
+
+
