@@ -14,7 +14,7 @@
 // Asset Locations
 @imageDir: "../images";
 @fontDir: "fonts";
-@spriteImage: "sprite.png";
+@spriteImage: "ap_icons_black_social.png";
 @spriteImage2x: "sprtite@2x.png";
 
 
@@ -55,7 +55,7 @@ background: url("@{imageDir}/@{spriteTemp}") no-repeat @pos1 @pos2;
   only screen and (        min-device-pixel-ratio: 2),
   only screen and (                min-resolution: 192dpi),
   only screen and (                min-resolution: 2dppx) {
-    background-image: url("@{imageDir}/@{@spriteTemp2x}");
+    background-image: url("@{imageDir}/@{spriteTemp2x}");
     background-position: @pos1 * 2 @pos2 * 2;
     background-size: @width-1x @height-1x;
   }
@@ -213,11 +213,31 @@ background: url("@{imageDir}/@{spriteTemp}") no-repeat @pos1 @pos2;
   border-right: (@side) solid transparent;
 }
 
-.trapezium(@height: 30px) {
+.trapezium(@height: 30px,@color: white) {
   height:@height;
-  border-bottom: @height solid #5F7D01;
+  border-bottom: @height solid @color;
   border-left: (@height /1.3333) solid transparent;
   border-right: (@height /1.3333) solid transparent;
+}
+
+.square(@size:100px, @color:red) {
+    .size(@size,@size);
+    background: @color;
+}
+
+.circle(@size:100px, @color:red) {
+    .size(@size,@size);
+    .border-radius(@size/2);
+    background: @color;
+}
+
+
+.oval(@size:100px, @color:red) {
+    .size(@size,@size/2);
+    background: @color;
+    //-moz-border-radius: @size/2 ~"/" @size/4;
+    //-webkit-border-radius: @size/2 ~"/" @size/4;
+    border-radius: @size/2 ~"/" @size/4;
 }
 
 // Animate
@@ -279,14 +299,11 @@ background: url("@{imageDir}/@{spriteTemp}") no-repeat @pos1 @pos2;
 
 // components 
 
-.buttonfixed(@width: 160px) {
+.buttonfixed(@width: 160px,@radius: 5px) {
   display: inline-block;
   font-weight: bold;
   text-align: center;
-  border: 0;
-  text-decoration: none;
-  .border-radius(5px);
-  padding: 10px 15px;
+  .border-radius(@radius);
   width: @width;
 }
 

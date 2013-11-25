@@ -1,11 +1,124 @@
 @charset "utf-8";
 .btn1 {
-  background-color: #f4f4f4;
-  background-image: -webkit-linear-gradient(top, #f3f3f3 0%, #f4f4f4 100%);
-  background-image: -moz-linear-gradient(top, #f3f3f3 0%, #f4f4f4 100%);
-  background-image: -o-linear-gradient(top, #f3f3f3 0%, #f4f4f4 100%);
-  background-image: -ms-linear-gradient(top, #f3f3f3 0%, #f4f4f4 100%);
-  background-image: linear-gradient(top, #f3f3f3 0%, #f4f4f4 100%);
+  background-color: #3dbcc2;
+  background-image: -moz-linear-gradient(left, #1ebba6, #3dbcc2);
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#1ebba6), to(#3dbcc2));
+  background-image: -webkit-linear-gradient(left, #1ebba6, #3dbcc2);
+  background-image: -o-linear-gradient(left, #1ebba6, #3dbcc2);
+  background-image: linear-gradient(to right, #1ebba6, #3dbcc2);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1ebba6', endColorstr='#ff3dbcc2', GradientType=1);
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn2 {
+  background-color: #3dbcc2;
+  background-image: -moz-linear-gradient(top, #1ebba6, #3dbcc2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1ebba6), to(#3dbcc2));
+  background-image: -webkit-linear-gradient(top, #1ebba6, #3dbcc2);
+  background-image: -o-linear-gradient(top, #1ebba6, #3dbcc2);
+  background-image: linear-gradient(to bottom, #1ebba6, #3dbcc2);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1ebba6', endColorstr='#ff3dbcc2', GradientType=0);
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn3 {
+  background-color: #3dbcc2;
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(45deg, #1ebba6, #3dbcc2);
+  background-image: -webkit-linear-gradient(45deg, #1ebba6, #3dbcc2);
+  background-image: -o-linear-gradient(45deg, #1ebba6, #3dbcc2);
+  background-image: linear-gradient(45deg, #1ebba6, #3dbcc2);
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn4 {
+  background-color: #3dbcc2;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#1ebba6), to(#3dbcc2));
+  background-image: -webkit-radial-gradient(circle, #1ebba6, #3dbcc2);
+  background-image: -moz-radial-gradient(circle, #1ebba6, #3dbcc2);
+  background-image: -o-radial-gradient(circle, #1ebba6, #3dbcc2);
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn5 {
+  background-color: #1ebba6;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(#3dbcc2, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(#3dbcc2, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(#3dbcc2, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(#3dbcc2, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn6 {
+  background-color: #d96114;
+  background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from(#ed8f06), color-stop(#b45303, #df6d01), to(#c3325f));
+  background-image: -webkit-linear-gradient(left, #ed8f06, #df6d01 #b45303, #c3325f);
+  background-image: -moz-linear-gradient(left, #ed8f06, #df6d01 #b45303, #c3325f);
+  background-image: -o-linear-gradient(left, #ed8f06, #df6d01 #b45303, #c3325f);
+  background-image: linear-gradient(to right, #ed8f06, #df6d01 #b45303, #c3325f);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffed8f06', endColorstr='#ffc3325f', GradientType=0);
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn7 {
+  background-color: #d96114;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ed8f06), color-stop(#b45303, #df6d01), to(#c3325f));
+  background-image: -webkit-linear-gradient(#ed8f06, #df6d01 #b45303, #c3325f);
+  background-image: -moz-linear-gradient(top, #ed8f06, #df6d01 #b45303, #c3325f);
+  background-image: -o-linear-gradient(#ed8f06, #df6d01 #b45303, #c3325f);
+  background-image: linear-gradient(#ed8f06, #df6d01 #b45303, #c3325f);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffed8f06', endColorstr='#ffc3325f', GradientType=0);
+  width: 130px;
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+.btn9 {
+  background-color: #df6d01;
+  background-image: -webkit-linear-gradient(top, #ed8f06 0%, #df6d01 100%);
+  background-image: -moz-linear-gradient(top, #ed8f06 0%, #df6d01 100%);
+  background-image: -o-linear-gradient(top, #ed8f06 0%, #df6d01 100%);
+  background-image: -ms-linear-gradient(top, #ed8f06 0%, #df6d01 100%);
+  background-image: linear-gradient(top, #ed8f06 0%, #df6d01 100%);
   width: 130px;
   height: 20px;
   -webkit-border-radius: 5px;
@@ -13,7 +126,7 @@
   border-radius: 5px;
   padding: 10px;
 }
-.btn2 {
+.btn10 {
   background: #244a87;
   background: -moz-linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
   background: -webkit-linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
@@ -27,6 +140,19 @@
   border-radius: 5px;
   color: white;
   padding: 10px;
+}
+.cornertest1 {
+  background: #244a87;
+  background: -moz-linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
+  background: -webkit-linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
+  background: -o-linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
+  background: -ms-linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
+  background: linear-gradient(top, #5174b8 0%, #3d62a3 50%, #335898 52%, #244a87 100%);
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }
 .triangletest1 {
   width: 0;
@@ -71,6 +197,43 @@
   -o-transform: rotate(270deg);
   transform: rotate(270deg);
 }
+.squaretest {
+  width: 20px;
+  height: 20px;
+  background: #ff0000;
+}
+.circletest {
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: #ff0000;
+}
+.ovaltest {
+  width: 20px;
+  height: 10px;
+  background: #ff0000;
+  border-radius: 10px / 5px;
+}
+.trapezium {
+  height: 30px;
+  border-bottom: 30px solid #ff0000;
+  border-left: 22.500562514062853px solid transparent;
+  border-right: 22.500562514062853px solid transparent;
+  width: 30px;
+}
+.buttontest1 {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 160px;
+  padding: 10px 15px;
+  background-color: red;
+}
 .logo1 {
   background: url("../images/test.png") no-repeat left;
   width: 20px;
@@ -92,4 +255,17 @@
   background: url("../images/ap_icons_black_social.png") no-repeat 0px -2px;
   width: 32px;
   height: 32px;
+}
+.logo4 {
+  background-image: url("../images/ap_icons_black_social.png");
+  background-position: 0px -2px;
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .logo4 {
+    background-image: url("../images/ap_icons_black_2x_social.png");
+    background-position: 0px -4px;
+    background-size: 582px 582px;
+  }
 }

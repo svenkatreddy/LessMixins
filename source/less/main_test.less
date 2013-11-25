@@ -1,19 +1,87 @@
 @import "main.less";
 
-.btn1 {
-  .gradient-bilinear(top, #f3f3f3,0%,#f4f4f4,100%);
+
+.btn1{
+  .gradient-horizontal(#1EBBA6,#3DBCC2);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.btn2{
+  .gradient-vertical(#1EBBA6,#3DBCC2);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.btn3{
+  .gradient-directional(#1EBBA6,#3DBCC2);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.btn4{
+  .gradient-radial(#1EBBA6,#3DBCC2);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.btn5{
+  .gradient-striped(#1EBBA6,#3DBCC2);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.btn6{
+  .gradient-horizontal-three-colors(#ED8F06,#DF6D01,#B45303);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+.btn7{
+  .gradient-vertical-three-colors(#ED8F06,#DF6D01,#B45303);
+  .size(130px,20px);
+  .border-radius(5px);
+  color : white;
+  padding: 10px;
+}
+
+
+.btn9 {
+  .gradient-bilinear(top,#ED8F06,0%,#DF6D01,100%);
   .size(130px,20px);
   .border-radius(5px);
   padding: 10px;
 }
 
-.btn2 {
+.btn10 {
   .gradient-quadlinear (top,#5174b8,#3d62a3,50%,#335898,52%,#244a87);
   .size(130px,20px);
   .border-radius(5px);
   color : white;
   padding: 10px;
 }
+
+
+.cornertest1 {
+ .gradient-quadlinear (top,#5174b8,#3d62a3,50%,#335898,52%,#244a87);
+  .size(60px,60px);
+  .border-radius(15px);; 
+}
+
+
+
 
 .triangletest1{
     .triangle(12px,red);
@@ -33,6 +101,29 @@
     .rotate(270);
 }
 
+.squaretest{
+    .square(20px,red);
+}
+
+.circletest{
+    .circle(20px,red);
+}
+.ovaltest{
+   .oval(20px,red);
+}
+
+.trapezium {
+    .trapezium(30px,red);
+    width:30px;
+}
+
+.buttontest1{
+    .buttonfixed(160px);
+    padding: 10px 15px;
+    background-color :red;
+}
+
+
 .logo1 {
     .background("test.png");
     .size(20px,20px);
@@ -44,12 +135,14 @@
 }
 
 .logo3{
-    .background-sprite(0px, -2px,"ap_icons_black_social.png");
+    .background-sprite(0px, -2px);
     .size(32px,32px);
 } 
 .logo4{
-    
+    .retina-image-sprite(0px, -2px, 582px, 582px,"ap_icons_black_social.png","ap_icons_black_2x_social.png");
+    .size(32px,32px);
 }
+
 
 
 
