@@ -5,7 +5,7 @@
   "author": "svenkatreddy",
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-clean": "~2.0.0",
     "grunt-html": "~0.3.3",
     "grunt-concurrent": "~0.3.0",
     "grunt-open": "~0.2.0",
