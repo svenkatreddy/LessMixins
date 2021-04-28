@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: grunt-html
+    versions:
+    - 14.2.2
+    - 14.3.0
+  - dependency-name: grunt-contrib-uglify
+    versions:
+    - 5.0.0
+  - dependency-name: grunt-concurrent
+    versions:
+    - 2.3.1
+  - dependency-name: grunt-contrib-cssmin
+    versions:
+    - 3.0.0
